@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Status Update</title>
+</head>
+<body style="background-color: #eef1f6; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 40px 10px;">
+
+<div style="max-width: 550px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); overflow: hidden;">
+
+    <!-- Header Fragment -->
+    <div th:replace="~{fragments/header :: header}"></div>
+
+    <!-- Body Content -->
+    <div style="padding: 40px 35px; color: #2d3436;">
+        <h2 style="font-size: 22px; font-weight: 700; color: #1e272e; margin-top: 0; margin-bottom: 20px;">
+            Restaurant Onboarding Status
+        </h2>
+
+        <p style="font-size: 15px; color: #57606f; margin-bottom: 15px;">
+            Hello Partner,
+        </p>
+
+        <p style="font-size: 15px; color: #57606f; line-height: 1.6; margin-bottom: 25px;">
+            Your request for restaurant <strong th:text="${restaurantName}">Restaurant Name</strong> registration status has been updated.
+        </p>
+
+        <!-- Status Box -->
+        <div style="text-align: center; margin: 30px 0;">
+            <div th:if="${status == 'APPROVED'}" style="display: inline-block; background-color: #e6f4ea; border: 1px solid #34a853; border-radius: 8px; padding: 12px 28px; font-size: 18px; font-weight: 700; color: #1e8e3e;">
+                STATUS: APPROVED
+            </div>
+            <div th:if="${status == 'REJECTED'}" style="display: inline-block; background-color: #fce8e6; border: 1px solid #ea4335; border-radius: 8px; padding: 12px 28px; font-size: 18px; font-weight: 700; color: #d93025;">
+                STATUS: REJECTED
+            </div>
+        </div>
+
+        <!-- Rejection Reason (If REJECTED) -->
+<!--        <div th:if="${status == 'REJECTED' and rejectionReason != null}" style="background-color: #f8f9fa; border-left: 4px solid #ea4335; padding: 15px; border-radius: 4px; margin-bottom: 25px;">-->
+<!--            <p style="margin: 0; font-size: 14px; color: #57606f;"><strong>Reason:</strong> <span th:text="${rejectionReason}">Reason here</span></p>-->
+<!--        </div>-->
+
+        <p th:if="${status == 'APPROVED'}" style="font-size: 14px; color: #57606f; margin-bottom: 30px;">
+            Congratulations! You can now log in to your partner portal and start listing your menu items.
+        </p>
+
+        <div style="border-top: 1px solid #f1f2f6; padding-top: 20px;">
+            <p style="font-size: 14px; color: #57606f; margin: 0;">Regards,</p>
+            <p style="font-size: 15px; font-weight: 700; color: #1e272e; margin: 4px 0 0 0;">Food Delivery Admin Team</p>
+        </div>
+    </div>
+
+    <!-- Footer Fragment -->
+    <div th:replace="~{fragments/footer :: footer}"></div>
+
+</div>
+
+</body>
+</html>

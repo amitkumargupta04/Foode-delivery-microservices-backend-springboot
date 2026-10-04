@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Verification</title>
+</head>
+<body style="background-color: #eef1f6; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 40px 10px;">
+
+<div style="max-width: 550px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); overflow: hidden;">
+
+    <!-- Header Fragment -->
+    <div th:replace="~{fragments/header :: header}"></div>
+
+    <!-- Body Content -->
+    <div style="padding: 40px 35px; color: #2d3436;">
+        <h2 style="font-size: 22px; font-weight: 700; color: #1e272e; margin-top: 0; margin-bottom: 20px;">
+            Verify Your Identity
+        </h2>
+
+        <p style="font-size: 15px; color: #57606f; margin-bottom: 15px;">
+            Hello <span th:text="${name}">User</span>,
+        </p>
+
+        <p style="font-size: 15px; color: #57606f; line-height: 1.6; margin-bottom: 30px;">
+            We received a request to verify your account. Use the OTP below to continue:
+        </p>
+
+        <!-- OTP Box -->
+        <div style="text-align: center; margin: 30px 0;">
+            <div style="display: inline-block; background-color: #f1f2f6; border-radius: 10px; padding: 15px 35px; letter-spacing: 12px; font-size: 32px; font-weight: 800; color: #1e272e; font-family: monospace;">
+                <span th:text="${otp}">998163</span>
+            </div>
+        </div>
+
+        <p style="font-size: 14px; color: #57606f; margin-top: 30px; margin-bottom: 35px;">
+            This OTP is valid for <strong>5 minutes</strong>.
+        </p>
+
+        <div style="border-top: 1px solid #f1f2f6; padding-top: 20px;">
+            <p style="font-size: 14px; color: #57606f; margin: 0;">Regards,</p>
+            <p style="font-size: 15px; font-weight: 700; color: #1e272e; margin: 4px 0 0 0;">Food Delivery Team</p>
+        </div>
+    </div>
+
+    <!-- Footer Fragment -->
+    <div th:replace="~{fragments/footer :: footer}"></div>
+
+</div>
+
+</body>
+</html>
